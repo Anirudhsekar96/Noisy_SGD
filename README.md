@@ -30,8 +30,8 @@ The best hyperparameters are listed as follows to ease your reproduction:
 | AMSGrad | 0.001 | | 0.99 | 0.999 | | | |
 | AdaBound (def.) | 0.001 | | 0.9 | 0.999 | 0.1 | 0.001 | |
 | AMSBound (def.) | 0.001 | | 0.9 | 0.999 | 0.1 | 0.001 | |
-| GGDO2 | 0.1 | 0.9 | | | | | | 0.01 |
-| GGDO4 | 0.1 | 0.9 | | | | | |  |
+| GGDO2 | 0.1 | 0.9 | | | | | 0.01 |
+| GGDO4 | 0.1 | 0.9 | | | | | |
 
 **DenseNet-121:**
 
