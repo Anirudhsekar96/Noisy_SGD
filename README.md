@@ -2,24 +2,18 @@
 
 In this example, we test GGDO on the standard CIFAR-10 image classification dataset,
 comparing with several baseline methods including: SGD, AdaGrad, Adam, and AMSGrad, ADABound, ADAGrad.
-The implementation is highly based on [this project](https://github.com/kuangliu/pytorch-cifar) [and this project](https://github.com/Luolc/AdaBound/tree/master/demos/cifar10).
+The implementation is highly based on [this project](https://github.com/kuangliu/pytorch-cifar)  [and this project](https://github.com/Luolc/AdaBound/tree/master/demos/cifar10).
 
 Tested with PyTorch 1.0.0.
 
 ## Visualization
 
-We provide a notebook to make it easier to visualize the performance of AdaBound.
-You can directly click [visualization.ipynb](./visualization.ipynb) and view the result on GitHub,
-or clone the project and run on your local.
+The results can be viewed in a visual format in [visualization.ipynb](./visualization.ipynb)
+The project can be cloned to run in local machine.
 
 ## Settings
 
-We have already provided the results produced by AdaBound/AMSBound with default settings and
-baseline optimizers with their best hyperparameters.
-The way of searching the best settings for baseline optimizers is described in the experiment
-section of the paper.
-The best hyperparameters are listed as follows to ease your reproduction:
-
+Best parameters for CIFAR10
 **ResNet-34:**
 
 | optimizer | lr | momentum | beta1 | beta2 | final lr | gamma | noise |
@@ -53,7 +47,7 @@ The following is an example to train ResNet-34 using AdaBound with a learning ra
 a final learning rate of 0.1.
 
 ```bash
-python main3.py --model=resnet --optim=ggdo2 --lr=0.001 --momentum=0.9 --noise=0.01
+python main3.py --model=resnet --optim=ggdo2 --lr=0.1 --momentum=0.9 --noise=0.01
 ```
 
 The checkpoints will be saved in the `checkpoint` folder and the data points of the learning curve
