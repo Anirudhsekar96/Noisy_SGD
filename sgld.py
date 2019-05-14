@@ -58,7 +58,7 @@ class SGLD(Optimizer):
 
                 #std = torch.pow(torch.div(group['noise'],torch.pow(state['step'].add(1),group['gamma'])),(0.5))
                 
-                std = group['lr'].div(state['step']**(state['gamma']))
+                std = torch.div(group['lr'],(state['step']**(state['gamma'])))
                 nr = torch.normal(mean=0, std = std)
                 updt = grad.add(nr)
                 p.data.add_(-group['lr'],updt)
