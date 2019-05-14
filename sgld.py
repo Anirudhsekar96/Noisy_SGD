@@ -53,7 +53,7 @@ class SGLD(Optimizer):
                     
                 state['step'] += 1
 
-		# std = (nu/(1+t)^gamma)^(1/2)
+                # std = (nu/(1+t)^gamma)^(1/2)
                 
 
                 #std = torch.pow(torch.div(group['noise'],torch.pow(state['step'].add(1),group['gamma'])),(0.5))

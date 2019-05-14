@@ -81,7 +81,7 @@ def get_ckpt_name(model='resnet', optimizer='sgd', lr=0.1, final_lr=0.1, momentu
         'ggdo2': 'lr{}-momentum{}-noise{}'.format(lr, momentum, noise),
         'ggdo3': 'lr{}-momentum{}-noise{}'.format(lr, momentum, noise),
         'ggdo4': 'lr{}-momentum{}'.format(lr, momentum),
-	'sgld': 'lr{}-noise{}'.format(sgld, noise),
+        'sgld': 'lr{}-noise{}'.format(sgld, noise),
     }[optimizer]
     return '{}-{}-{}'.format(model, optimizer, name)
 
