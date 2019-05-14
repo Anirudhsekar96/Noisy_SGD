@@ -73,7 +73,7 @@ class GGDO(Optimizer):
 
                 # Updating mean
                 mean = mean.mul(group['momentum'])
-                mean = mean.addcmul((1- group['momentum']),updt)
+                mean = mean.add((1- group['momentum']),updt)
                 
                 part_var1 = grad.add(-old_mean)
                 part_var2 = grad.add(-mean)
