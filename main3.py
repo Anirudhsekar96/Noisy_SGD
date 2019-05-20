@@ -17,13 +17,14 @@ import ggdo3
 import ggdo4
 import sgld
 import ggdo5
+import pSGLD
 
 def get_parser():
     parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
     parser.add_argument('--model', default='resnet', type=str, help='model',
                         choices=['resnet', 'densenet'])
     parser.add_argument('--optim', default='sgd', type=str, help='optimizer',
-                        choices=['sgd', 'adagrad', 'adam', 'amsgrad', 'adabound', 'amsbound', 'ggdo','ggdo2','ggdo3','ggdo4','sgld','ggdo5'])
+                        choices=['sgd', 'adagrad', 'adam', 'amsgrad', 'adabound', 'amsbound', 'ggdo','ggdo2','ggdo3','ggdo4','sgld','ggdo5','pSGLD'])
     parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
     parser.add_argument('--final_lr', default=0.1, type=float,
                         help='final learning rate of AdaBound')
@@ -84,6 +85,7 @@ def get_ckpt_name(model='resnet', optimizer='sgd', lr=0.1, final_lr=0.1, momentu
         'ggdo4': 'lr{}-momentum{}'.format(lr, momentum),
         'sgld': 'lr{}-noise{}'.format(lr, noise),
         'ggdo5': 'lr{}-momentum{}-noise{}'.format(lr, momentum, noise),
+        'pSGLD': 'lr{}-noise{}'.format(lr, noise),
     }[optimizer]
     return '{}-{}-{}'.format(model, optimizer, name)
 
@@ -147,6 +149,9 @@ def create_optimizer(args, model_params):
     elif args.optim == 'ggdo5':
         return ggdo5.GGDO(model_params, args.lr, momentum=args.momentum,
                          weight_decay=args.weight_decay, noise=args.noise)
+    elif args.optim == 'pSGLD':
+        return pSGLD.pSGLD(model_params, args.lr, noise=args.noise,
+                         weight_decay=args.weight_decay)
     
     else:
         assert args.optim == 'amsbound'
