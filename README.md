@@ -1,7 +1,12 @@
+# Adaptively Preconditioned Stochastic Gradient Langevin Dynamics
+
+In this project, we try to implementent a Noisy Stochastic Gradient Descent based approach for non-convex optimization. The key intution is to precondition the noise in Stochastic Gradient Langevin Dynamics with a running average of momentum and variance of first order gradients.
+
+The paper was accepted in International Confenrence on Machine Learning (ICML 2019) Workshop on Understanding and Improving Genrealization in Deep Learning (https://arxiv.org/abs/1906.04324).
+
 # Examples on CIFAR-10
 
-In this example, we test GGDO on the standard CIFAR-10 image classification dataset,
-comparing with several baseline methods including: SGD, AdaGrad, Adam, AMSGrad, ADABound, and AMSBound.
+In this example, we test ASGLD (Adaptively Preconditioned Stochastic Gradient Langevin Dynamics) on the standard CIFAR-10 image classification dataset, comparing with several baseline methods including: SGD, AdaGrad, Adam, AMSGrad, ADABound, and AMSBound.
 
 The implementation is highly based on [this project](https://github.com/kuangliu/pytorch-cifar)  [and this project](https://github.com/Luolc/AdaBound/tree/master/demos/cifar10).
 
@@ -30,6 +35,8 @@ Best parameters for CIFAR10
 
 
 We apply a weight decay of `5e-4` to all the optimizers.
+
+GGDO2 algorithm reflects the ASGLD algorithm proposed in the paper.
 
 ## Training on local machine
 
