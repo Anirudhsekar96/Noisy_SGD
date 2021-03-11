@@ -242,7 +242,7 @@ def main():
     test_losses = []
 
     for epoch in range(start_epoch + 1, 200):
-        scheduler.step()
+        
         train_acc, train_loss = train(net, epoch, device, train_loader, optimizer, criterion)
         test_acc, test_loss = test(net, device, test_loader, criterion)
 
@@ -270,6 +270,9 @@ def main():
         torch.save({'train_acc': train_accuracies, 'test_acc': test_accuracies,
                    'train_loss': train_losses, 'test_loss': test_losses},
                    os.path.join('curve', ckpt_name))
+        
+        # Update for Pytoch>1.1 in which optim.step() in train has to be called before scheduler.step()
+        scheduler.step()
 
 
 if __name__ == '__main__':
